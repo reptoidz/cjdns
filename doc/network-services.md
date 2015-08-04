@@ -119,3 +119,13 @@ Comment out the following line in `/etc/lighttpd/lighttpd.conf`:
     include_shell "/usr/share/lighttpd/use-ipv6.pl"
 
 Thats it for now! Got More? Tell us on IRC.
+
+### Firewalld
+
+If you are just a client on Fedora or RHEL 7.x+ you'll be using FirewallD instead of iptables.
+
+In order to lock down your system (drop packets) use the following command:
+
+    firewall-cmd --permanent --zone=drop --change-interface=tun0
+
+Research is recommended on firewalld if you are running services. The above command will lock you down against all incoming packets that are not initiated by yourself.
